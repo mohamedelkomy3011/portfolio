@@ -3,619 +3,480 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohamed Elkomy</title>
+    <title>Mohamed Elkomy - Portfolio</title>
+    
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
     <style>
-        * {
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f8f9fa;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
-            color: #ffffff;
-            overflow-x: hidden;
-            line-height: 1.6;
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" fill="%2364ffda" opacity="0.8"/><circle cx="12" cy="12" r="3" fill="%23ffffff"/></svg>'), auto;
+        .gradient-text {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 200% auto;
+            animation: gradientText 8s ease infinite;
         }
 
-        /* Animated background particles */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
+        @keyframes gradientText {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(243, 244, 246, 0.8);
             overflow: hidden;
         }
 
-        .particle {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: rgba(100, 255, 218, 0.3);
-            border-radius: 50%;
-            animation: float 20s infinite linear;
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: rgba(229, 231, 235, 0.5);
         }
 
-        @keyframes float {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-10vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 50px;
-            background: rgba(12, 12, 12, 0.9);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            gap: 40px;
-        }
-
-        nav a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        nav a:hover {
-            color: #64ffda;
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M7 14l5-5 5 5" stroke="%2364ffda" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'), pointer;
-        }
-
-        nav a::after {
+        .card::before {
             content: '';
             position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
+            top: 0;
             left: 0;
-            background: linear-gradient(90deg, #64ffda, #00d4ff);
-            transition: width 0.3s ease;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        nav a:hover::after {
-            width: 100%;
+        .card:hover::before {
+            opacity: 1;
         }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
+        
+        img:not(.profile-image):hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
         }
-
-        .hero-content {
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, #64ffda, #00d4ff, #ff6b6b);
-            background-size: 300% 300%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradientShift 4s ease-in-out infinite;
-        }
-
-        .hero .subtitle {
-            font-size: 1.5rem;
-            color: #a8a8a8;
-            margin-bottom: 30px;
-        }
-
-        /* CTA Buttons Container */
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 15px 35px;
-            background: linear-gradient(45deg, #64ffda, #00d4ff);
-            color: #0c0c0c;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
+        
+        .project-image {
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(100, 255, 218, 0.5);
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="%2364ffda" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="11" stroke="%2364ffda" stroke-width="1" fill="none"/></svg>'), pointer;
-        }
-
-        .cta-button.secondary {
-            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
-            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
-        }
-
-        .cta-button.secondary:hover {
-            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.5);
-        }
-
-        /* Section Styles */
-        .section {
-            padding: 100px 50px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section h2 {
-            font-size: 3rem;
-            text-align: center;
-            margin-bottom: 50px;
-            color: #64ffda;
-        }
-
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 50px;
-            align-items: center;
+            cursor: zoom-in;
         }
 
         .profile-image {
-            width: 300px;
-            height: 300px;
-            border-radius: 20px;
-            background: linear-gradient(45deg, #64ffda, #00d4ff);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 6rem;
-            color: #0c0c0c;
-            box-shadow: 0 20px 60px rgba(100, 255, 218, 0.3);
-            transition: transform 0.3s ease;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .profile-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 20px;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .profile-image:hover {
-            transform: rotate(-5deg) scale(1.05);
+            transform: scale(1.05);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
 
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 500;
         }
 
-        .skill-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid rgba(100, 255, 218, 0.2);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: linear-gradient(90deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            border-radius: 0.5rem;
+            transition: width 0.3s ease;
+            z-index: -1;
         }
 
-        .skill-card:hover {
-            transform: translateY(-10px);
-            border-color: #64ffda;
-            box-shadow: 0 20px 40px rgba(100, 255, 218, 0.2);
+        .nav-link:hover {
+            color: #3b82f6;
+            transform: translateY(-2px);
         }
 
-        .skill-card h3 {
-            color: #64ffda;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
+        .nav-link:hover::before {
+            width: 100%;
         }
 
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-        }
-
-        .project-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid rgba(100, 255, 218, 0.2);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(15px);
-        }
-
-        .project-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 25px 50px rgba(100, 255, 218, 0.3);
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="%2364ffda" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'), pointer;
-        }
-
-        .project-image {
-            height: 200px;
-            background: linear-gradient(45deg, #ff6b6b, #64ffda, #00d4ff);
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
-            color: #0c0c0c;
-            overflow: hidden;
-            position: relative;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
         }
 
-        .project-card:hover .project-image img {
-            transform: scale(1.1);
+        .scroll-to-top:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.3);
+            background: linear-gradient(135deg, #8b5cf6, #ec4899);
         }
 
-        .project-content {
-            padding: 25px;
-        }
-
-        .project-content h3 {
-            color: #64ffda;
-            margin-bottom: 15px;
-        }
-
-        /* Contact Section */
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(100, 255, 218, 0.3);
-            border-radius: 10px;
-            color: #ffffff;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #64ffda;
-            box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 50px;
-            background: rgba(12, 12, 12, 0.8);
-            border-top: 1px solid rgba(100, 255, 218, 0.2);
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 20px;
-        }
-
-        .social-links a {
-            color: #64ffda;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            transform: translateY(-3px);
-            color: #00d4ff;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes gradientShift {
-            0%, 100% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            nav {
-                padding: 15px 20px;
-            }
-            
-            nav ul {
-                gap: 20px;
-            }
-            
-            .section {
-                padding: 50px 20px;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .cta-button {
-                width: 200px;
-            }
+        .skill-tag {
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
         }
     </style>
 </head>
 <body>
-    <!-- Animated background particles -->
-    <div class="particles" id="particles"></div>
-
     <!-- Navigation -->
-            <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#certificates">Certificates</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="assets/my_cv.pdf" target="_blank">My CV</a></li>
-        </ul>
+    <nav class="fixed w-full bg-white shadow-sm z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <h1 class="text-2xl font-bold gradient-text mb-4 md:mb-0">Mohamed Elkomy</h1>
+                <div class="flex items-center gap-6">
+                    <!-- Hamburger Menu for Mobile -->
+                    <button id="menuToggle" class="md:hidden text-gray-600 hover:text-blue-600">
+                        <i class="fas fa-bars"></i>
+                    </button>
+
+                    <!-- Desktop and Mobile View -->
+                    <div id="menu" class="hidden md:flex gap-6">
+                        <a href="#about" class="nav-link text-gray-600 hover:text-blue-600">About</a>
+                        
+                        <!-- CV and LinkedIn links (always visible on mobile) -->
+                        <a href="E:\portfolio\assets\my_cv.pdf" target="_blank" class="text-transparent bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text rounded-lg py-3 px-6 flex items-center justify-center gap-2 transition-all duration-300 shadow-lg hover:shadow-xl">
+                            <i class="fas fa-file-alt text-xl"></i>
+                            <span class="text-lg">CV</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/mohamed-elkomy-me30/" target="_blank" class="text-transparent bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text rounded-lg py-3 px-6 flex items-center justify-center gap-2 transition-all duration-300 shadow-lg hover:shadow-xl">
+                            <i class="fab fa-linkedin text-xl"></i>
+                            <span class="text-lg">LinkedIn</span>
+                        </a>
+                    </div>
+
+                    <!-- Mobile Menu -->
+                    <div id="mobileMenu" class="md:hidden fixed top-0 left-0 right-0 bg-white z-40 p-6 shadow-md hidden">
+                        <ul>
+                            <li><a href="#about" class="block text-gray-600 hover:text-blue-600 mb-4">About</a></li>
+                            <li><a href="E:\portfolio\assets\my_cv.pdf" target="_blank" class="block text-transparent bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text py-3 px-6 mb-4">CV</a></li>
+                            <li><a href="https://www.linkedin.com/in/mohamed-elkomy-me30/" target="_blank" class="block text-transparent bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text py-3 px-6 mb-4">LinkedIn</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Mohamed Elkomy</h1>
-            <p class="subtitle">Data Scientist & Data Analyst</p>
-            <div class="cta-buttons">
-                <a href="#projects" class="cta-button">View My Work</a>
-                <a href="assets/my_cv.pdf" class="cta-button secondary" target="_blank">My CV</a>
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 pt-24 pb-12">
+        <!-- About Section -->
+        <section id="about" class="mb-16">
+            <div class="card p-8" data-aos="fade-up">
+                <div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
+                    <!-- Profile Picture -->
+                    <div class="w-48 h-48 flex-shrink-0" data-aos="fade-right" data-aos-delay="200">
+                        <img
+                            src="E:\portfolio\assets\my_photo.jpg"
+                            alt="Mohamed Elkomy"
+                            class="profile-image w-full h-full object-cover"
+                        />
+                    </div>
+                    
+                    <!-- About Content -->
+                    <div class="flex-grow" data-aos="fade-left" data-aos-delay="400">
+                        <h2 class="text-3xl font-bold mb-4 gradient-text">About Me</h2>
+                        <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+                            Data Analyst & Data Scientist pursuing a Bachelor's in Artificial Intelligence 
+                            at the University of Menoufia. Passionate about transforming data into meaningful insights 
+                            and building intelligent solutions that make a difference.
+                        </p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+        
+        <!-- Certifications Section -->
+        <section id="certifications" class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 gradient-text" data-aos="fade-up">Certifications</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- NVIDIA Deep Learning Certificate -->
+                <div class="card p-6" data-aos="fade-up">
+                    <div class="flex flex-col h-full">
+                        <div class="mb-4">
+                            <!-- Image Section with Gradient Background -->
+                            <div class="bg-gradient-to-br from-green-50 to-blue-50 p-4 rounded-xl mb-6 transition-all duration-300 hover:shadow-md hover:scale-[1.02] transform-gpu">
+                                <img src="E:\portfolio\assets\Nvidia.png" 
+                                     alt="NVIDIA Getting Started with Deep Learning Certificate"
+                                     class="w-full h-48 object-contain mx-auto"
+                                     loading="lazy">
+                            </div>
+        
+                            <!-- Certification Details -->
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-2 text-center">
+                                Getting Started with Deep Learning
+                            </h3>
+                            <div class="text-center mb-3">
+                                <div class="flex items-center justify-center gap-2 text-gray-600 mb-2">
+                                    <i class="fas fa-university"></i>
+                                    <span class="font-medium">NVIDIA</span>
+                                </div>
+                                <div class="flex items-center justify-center gap-2 text-sm text-gray-500">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Issued: Sep 5, 2025</span>
+                                    <span class="mx-1">•</span>
+                                    <i class="fas fa-infinity"></i>
+                                    <span>Lifetime Validity</span>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- Skill Tags -->
+                        <div class="flex flex-wrap gap-2 mb-4 justify-center">
+                            <span class="skill-tag bg-green-100 text-green-800">
+                                <i class="fas fa-brain mr-2"></i>Deep Learning
+                            </span>
+                            <span class="skill-tag bg-blue-100 text-blue-800">
+                                <i class="fas fa-robot mr-2"></i>AI/ML
+                            </span>
+                            <span class="skill-tag bg-green-100 text-green-800">
+                                <i class="fas fa-code mr-2"></i>Neural Networks
+                            </span>
+                        </div>
+        
+                        <!-- Verification Link -->
+                        <a href="https://www.linkedin.com/posts/mohamed-elkomy-me30_nvidia-deeplearning-iti-activity-7369738283938934788-nWto?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFy1uJABT7A0h6vFFqUbMEtm7eeEruLIDFI" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="inline-flex items-center justify-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition-colors duration-300 mt-auto"
+                           aria-label="Verify NVIDIA Certificate on LinkedIn">
+                            <i class="fas fa-external-link-alt"></i>
+                            Verify Certificate
+                            <span class="text-xs text-gray-500 ml-2">(LinkedIn)</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-        <h2>About Me</h2>
-        <div class="about-content">
-            <div class="profile-image">
-                <img src="assets/my_photo.jpg" alt="Mohamed Elkomy" />
+        <!-- Projects Section -->
+        <section id="projects" class="mt-16">
+            <h2 class="text-3xl font-bold mb-8 gradient-text" data-aos="fade-up">Featured Projects</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+
+                <!-- Premier League Dashboard Project -->
+                <div class="card overflow-hidden md:col-span-2" data-aos="fade-up">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-2">Premier League 94-2024 Dashboard</h3>
+                        <p class="text-gray-600 mb-4">
+                            Comprehensive analysis of Premier League statistics from 1994 to 2024, featuring team performance, 
+                            player statistics, seasonal trends, and historical data visualization using Power BI.
+                        </p>
+                        
+                        <!-- Single Image Display -->
+                        <div class="grid grid-cols-1 gap-4 mb-6">
+                            <img src="E:\portfolio\assets\Premier Dashboard.png" 
+                                alt="Premier League Dashboard showing 30 years of football analytics" 
+                                class="rounded-lg w-full h-73 aspect-video object-cover project-image">
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="skill-tag bg-gray-100 text-gray-800">Power BI</span>
+                            <span class="skill-tag bg-gray-100 text-gray-800">DAX</span>
+                            <span class="skill-tag bg-gray-100 text-gray-800">Football Analytics</span>
+                            <span class="skill-tag bg-gray-100 text-gray-800">Data Visualization</span>
+                            <span class="skill-tag bg-gray-100 text-gray-800">Sports Analytics</span>
+                        </div>
+
+                        <a href="https://www.linkedin.com/posts/mohamed-elkomy-me30_premierleague-footballanalytics-datavisualization-activity-7368318112535969802-xXAQ?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFy1uJABT7A0h6vFFqUbMEtm7eeEruLIDFI" 
+                           class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition-colors duration-300"
+                           target="_blank" 
+                           rel="noopener">
+                            <i class="fab fa-linkedin"></i>
+                            View on LinkedIn
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Uber 2024 Dashboard Project -->
+                <div class="card overflow-hidden md:col-span-2" data-aos="fade-up">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-2">Uber 2024 Dashboard</h3>
+                        <p class="text-gray-600 mb-4">
+                            Detailed analysis of Uber ride data for 2024, showcasing trip patterns, revenue insights, 
+                            geographical distributions, and performance metrics using advanced data visualization techniques.
+                        </p>
+                        
+                        <!-- Dual Image Display -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <img src="E:\portfolio\assets\uber .png" 
+                                alt="Uber Dashboard - Trip Analytics Overview" 
+                                class="rounded-lg w-full h-73 aspect-video object-cover project-image">
+                            <img src="E:\portfolio\assets\uber1.png" 
+                                alt="Uber Dashboard - Revenue and Geographic Analysis" 
+                                class="rounded-lg w-full h-73 aspect-video object-cover project-image">
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="skill-tag bg-gray-100 text-gray-800">Power BI</span>
+                            <span class="skill-tag bg-gray-100 text-gray-800">DAX</span>
+                            <span class="skill-tag bg-gray-100 text-gray-800">Transportation Analytics</span>
+                            <span class="skill-tag bg-gray-100 text-gray-800">Data Modeling</span>
+                            <span class="skill-tag bg-gray-100 text-gray-800">Geographic Analysis</span>
+                        </div>
+
+                        <a href="#" 
+                           class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition-colors duration-300"
+                           target="_blank" 
+                           rel="noopener">
+                            <i class="fab fa-linkedin"></i>
+                            View on LinkedIn
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div>
-                <h3 style="color: #64ffda; margin-bottom: 20px; font-size: 2rem;">Data Scientist & Analyst</h3>
-                <p style="font-size: 1.1rem; line-height: 1.8;">
-                    Data Analyst & Data Scientist pursuing a Bachelor's in Artificial Intelligence at the University of Menoufia. 
-                    Passionate about transforming data into meaningful insights and building intelligent solutions that make a difference.
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="mt-16">
+            <h2 class="text-3xl font-bold mb-8 gradient-text" data-aos="fade-up">Contact Me</h2>
+            <div class="card p-8" data-aos="fade-up">
+                <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+                    Feel free to reach out to me through any of the following channels:
                 </p>
-                <br>
-                <p style="font-size: 1.1rem; line-height: 1.8;">
-                    I specialize in extracting valuable insights from complex datasets and creating compelling data visualizations 
-                    that help businesses make informed decisions. My goal is to bridge the gap between raw data and actionable intelligence.
-                </p>
+
+                <!-- Contact Info -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-envelope text-blue-500"></i>
+                        <a href="mailto:mohamedelkomy367@gmail.com" class="text-lg text-gray-600 hover:text-blue-600">mohamedelkomy367@gmail.com</a>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <!-- Phone Call Link -->
+                        <a href="tel:+201069705670" class="flex items-center gap-3">
+                            <i class="fas fa-phone-alt text-blue-500"></i>
+                            <span class="text-lg text-gray-600">+201069705670</span>
+                        </a>
+                    </div>
+                    
+                    <div class="flex items-center gap-3">
+                        <!-- WhatsApp Link -->
+                        <a href="https://wa.me/+201069705670" target="_blank" class="flex items-center gap-3">
+                            <i class="fab fa-whatsapp text-green-500"></i>
+                            <span class="text-lg text-gray-600">WhatsApp</span>
+                        </a>
+                    </div>
+                    
+                    <div class="flex items-center gap-3">
+                        <i class="fab fa-linkedin text-blue-500"></i>
+                        <a href="https://www.linkedin.com/in/mohamed-elkomy-me30/" target="_blank" class="text-lg text-gray-600 hover:text-blue-600">LinkedIn Profile</a>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-file-alt text-blue-500"></i>
+                        <a href="E:\portfolio\assets\my_cv.pdf" target="_blank" class="text-lg text-gray-600 hover:text-blue-600">View My CV</a>
+                    </div>
+                </div>
             </div>
+        </section>
+
+    </main>
+
+    <!-- Scroll to Top Button -->
+    <div id="scrollToTop" class="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center hidden">
+        <div class="relative max-w-4xl w-full p-4">
+            <button id="closeLightbox" class="absolute top-4 right-4 text-white text-3xl z-50">&times;</button>
+            <img id="lightboxImage" src="" alt="" class="max-h-[90vh] mx-auto">
         </div>
-    </section>
+    </div>
 
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-        <h2>Skills & Expertise</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h3>Excel</h3>
-                <div style="background: rgba(100, 255, 218, 0.2); border-radius: 10px; height: 10px; margin: 10px 0;">
-                    <div style="width: 90%; height: 100%; background: linear-gradient(90deg, #64ffda, #00d4ff); border-radius: 10px;"></div>
-                </div>
-                <p>Advanced Excel functions, Power Query, Power Pivot, Data Analysis & Visualization</p>
-            </div>
-            <div class="skill-card">
-                <h3>Power BI</h3>
-                <div style="background: rgba(100, 255, 218, 0.2); border-radius: 10px; height: 10px; margin: 10px 0;">
-                    <div style="width: 75%; height: 100%; background: linear-gradient(90deg, #64ffda, #00d4ff); border-radius: 10px;"></div>
-                </div>
-                <p>Interactive Dashboards, DAX, Data Modeling, Business Intelligence Solutions</p>
-            </div>
-            <div class="skill-card">
-                <h3>SQL</h3>
-                <div style="background: rgba(100, 255, 218, 0.2); border-radius: 10px; height: 10px; margin: 10px 0;">
-                    <div style="width: 80%; height: 100%; background: linear-gradient(90deg, #64ffda, #00d4ff); border-radius: 10px;"></div>
-                </div>
-                <p>Database Management, Complex Queries, Data Extraction & Manipulation</p>
-            </div>
-            <div class="skill-card">
-                <h3>Python</h3>
-                <div style="background: rgba(100, 255, 218, 0.2); border-radius: 10px; height: 10px; margin: 10px 0;">
-                    <div style="width: 75%; height: 100%; background: linear-gradient(90deg, #64ffda, #00d4ff); border-radius: 10px;"></div>
-                </div>
-                <p>Pandas, NumPy, Matplotlib, Seaborn, Machine Learning Libraries</p>
-            </div>
-            <div class="skill-card">
-                <h3>Data Storytelling</h3>
-                <div style="background: rgba(100, 255, 218, 0.2); border-radius: 10px; height: 10px; margin: 10px 0;">
-                    <div style="width: 85%; height: 100%; background: linear-gradient(90deg, #64ffda, #00d4ff); border-radius: 10px;"></div>
-                </div>
-                <p>Visual Communication, Insight Discovery, Business Intelligence Reporting</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <h2>Some Of My Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="assets/social_media.png" alt="Social Media Dashboard" />
-                </div>
-                <div class="project-content">
-                    <h3>Social Media Engagement Dashboard</h3>
-                    <p>Interactive Excel dashboard analyzing social media metrics with advanced Power Query and Power Pivot techniques for comprehensive engagement insights.</p>
-                    <a href="https://www.linkedin.com/posts/mohamed-elkomy-16bb47254_excel-powerquery-powerpivot-activity-7361415132926697472-hMaO" target="_blank" style="color: #64ffda; text-decoration: none; font-weight: bold; margin-top: 10px; display: inline-block;">View on LinkedIn →</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="assets/fast_food_sales.png" alt="Fast Food Sales Dashboard" />
-                </div>
-                <div class="project-content">
-                    <h3>Fast Food Sales Dashboard</h3>
-                    <p>Comprehensive sales analysis dashboard built in Excel featuring dynamic charts, KPIs, and trend analysis for fast food business intelligence.</p>
-                    <a href="https://www.linkedin.com/posts/mohamed-elkomy-16bb47254_excel-powerquery-powerpivot-activity-7361053236251750400-uThf" target="_blank" style="color: #64ffda; text-decoration: none; font-weight: bold; margin-top: 10px; display: inline-block;">View on LinkedIn →</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="assets/FMCG_sales.png" alt="FMCG Sales Dashboard" />
-
-                </div>
-                <div class="project-content">
-                    <h3>FMCG Sales Dashboard</h3>
-                    <p>Advanced Excel dashboard for Fast-Moving Consumer Goods sales analysis with interactive visualizations and performance tracking metrics.</p>
-                    <a href="https://www.linkedin.com/posts/mohamed-elkomy-16bb47254_digitalegyptpioneers-exceldashboard-dataanalysis-activity-7354546622581633024-97EV" target="_blank" style="color: #64ffda; text-decoration: none; font-weight: bold; margin-top: 10px; display: inline-block;">View on LinkedIn →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certificates Section -->
-    <section id="certificates" class="section">
-        <h2>Certificates</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h3>🎓 Python for Beginners</h3>
-                <p><strong>Udemy</strong></p>
-                <p>Comprehensive introduction to Python programming fundamentals and basic data structures.</p>
-            </div>
-            <div class="skill-card">
-                <h3>🐍 Python Programming Basics</h3>
-                <p><strong>Mahara Tech</strong></p>
-                <p>Advanced Python concepts and practical application in data analysis and automation.</p>
-            </div>
-            <div class="skill-card">
-                <h3>🤖 AI & Machine Learning</h3>
-                <p><strong>ITI</strong> <span style="color: #ff6b6b; font-weight: bold;">(In Progress)</span></p>
-                <p>Deep dive into artificial intelligence concepts, machine learning algorithms, and practical implementations.</p>
-            </div>
-            <div class="skill-card">
-                <h3>📊 Google Data Analytics Specialist</h3>
-                <p><strong>DEPI</strong> <span style="color: #ff6b6b; font-weight: bold;">(In Progress)</span></p>
-                <p>Professional certification in data analysis, visualization, and business intelligence tools.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="section">
-        <h2>Get In Touch</h2>
-        <div class="contact-form">
-            <form>
-                <div class="form-group">
-                    <input type="text" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" placeholder="Your Email" required>
-                </div>
-                <div class="form-group">
-                    <textarea rows="6" placeholder="Your Message" required></textarea>
-                </div>
-                <div style="text-align: center;">
-                    <button type="submit" class="cta-button">Send Message</button>
-                </div>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/mohamed-elkomy-16bb47254/" target="_blank">LinkedIn</a>
-            <a href="https://www.facebook.com/mohamed.elkomy.567226" target="_blank">Facebook</a>
-            <a href="https://wa.me/201069705670" target="_blank">WhatsApp</a>
-            <a href="mailto:mohamedelkomy367@gmail.com">Email</a>
-        </div>
-        <p>&copy; 2025 Mohamed Elkomy. All rights reserved.</p>
-    </footer>
-
+    <!-- Initialize AOS -->
     <script>
-        // Create floating particles
-        function createParticles() {
-            const particles = document.getElementById('particles');
-            const particleCount = 50;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 20 + 's';
-                particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
-                particles.appendChild(particle);
-            }
-        }
+        // Lightbox functionality
+        document.querySelectorAll('.project-image').forEach(img => {
+            img.addEventListener('click', () => {
+                const lightbox = document.getElementById('lightbox');
+                const lightboxImg = document.getElementById('lightboxImage');
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightbox.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+        });
 
-        // Smooth scrolling for navigation links
+        document.getElementById('closeLightbox').addEventListener('click', () => {
+            document.getElementById('lightbox').classList.add('hidden');
+            document.body.style.overflow = '';
+        });
+        
+        AOS.init({
+            duration: 800,
+            offset: 100,
+            once: true
+        });
+
+        // Scroll to Top Functionality
+        const scrollToTop = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTop.classList.add('visible');
+            } else {
+                scrollToTop.classList.remove('visible');
+            }
+        });
+
+        scrollToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -629,47 +490,10 @@
             });
         });
 
-        // Form submission
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! I\'ll get back to you soon.');
-            this.reset();
-        });
-
-        // Add scroll effect to navigation
-        let lastScrollTop = 0;
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('nav');
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            if (scrollTop > lastScrollTop) {
-                nav.style.transform = 'translateY(-100%)';
-            } else {
-                nav.style.transform = 'translateY(0)';
-            }
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-        });
-
-        // Initialize particles when page loads
-        window.addEventListener('load', createParticles);
-
-        // Add intersection observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 1s ease-out';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections
-        document.querySelectorAll('.section').forEach(section => {
-            observer.observe(section);
+        // Toggle Mobile Menu
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
         });
     </script>
 </body>
