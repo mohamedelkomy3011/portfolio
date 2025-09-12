@@ -164,6 +164,32 @@
             display: inline-flex;
             align-items: center;
         }
+
+        .cert-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #6b7280;
+            border: 2px dashed #d1d5db;
+        }
+
+        .project-placeholder {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #f9fafb, #f3f4f6);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #6b7280;
+            border: 2px dashed #d1d5db;
+        }
     </style>
 </head>
 <body>
@@ -182,8 +208,8 @@
                     <div id="menu" class="hidden md:flex gap-6">
                         <a href="#about" class="nav-link text-gray-600 hover:text-blue-600">About</a>
                         
-                        <!-- CV and LinkedIn links (always visible on mobile) -->
-                        <a href="assets\Mohamed_Elkomy_CV.pdf" target="_blank" class="text-transparent bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text rounded-lg py-3 px-6 flex items-center justify-center gap-2 transition-all duration-300 shadow-lg hover:shadow-xl">
+                        <!-- CV and LinkedIn links -->
+                        <a href="assets/Mohamed_Elkomy_CV.pdf" target="_blank" class="text-transparent bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text rounded-lg py-3 px-6 flex items-center justify-center gap-2 transition-all duration-300 shadow-lg hover:shadow-xl">
                             <i class="fas fa-file-alt text-xl"></i>
                             <span class="text-lg">CV</span>
                         </a>
@@ -197,7 +223,7 @@
                     <div id="mobileMenu" class="md:hidden fixed top-0 left-0 right-0 bg-white z-40 p-6 shadow-md hidden">
                         <ul>
                             <li><a href="#about" class="block text-gray-600 hover:text-blue-600 mb-4">About</a></li>
-                            <li><a href="assets\Mohamed_Elkomy_CV.pdf" target="_blank" class="block text-transparent bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text py-3 px-6 mb-4">CV</a></li>
+                            <li><a href="assets/Mohamed_Elkomy_CV.pdf" target="_blank" class="block text-transparent bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text py-3 px-6 mb-4">CV</a></li>
                             <li><a href="https://www.linkedin.com/in/mohamed-elkomy-me30/" target="_blank" class="block text-transparent bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text py-3 px-6 mb-4">LinkedIn</a></li>
                         </ul>
                     </div>
@@ -212,13 +238,11 @@
         <section id="about" class="mb-16">
             <div class="card p-8" data-aos="fade-up">
                 <div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
-                    <!-- Profile Picture -->
+                    <!-- Profile Picture Placeholder -->
                     <div class="w-48 h-48 flex-shrink-0" data-aos="fade-right" data-aos-delay="200">
-                        <img
-                            src="assets\my_photo.jpg"
-                            alt="Mohamed Elkomy"
-                            class="profile-image w-full h-full object-cover"
-                        />
+                        <div class="profile-image w-full h-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center text-blue-600 text-4xl">
+                            <i class="fas fa-user"></i>
+                        </div>
                     </div>
                     
                     <!-- About Content -->
@@ -243,12 +267,14 @@
                 <div class="card p-6" data-aos="fade-up">
                     <div class="flex flex-col h-full">
                         <div class="mb-4">
-                            <!-- Image Section with Gradient Background -->
+                            <!-- Certificate Placeholder -->
                             <div class="bg-gradient-to-br from-green-50 to-blue-50 p-4 rounded-xl mb-6 transition-all duration-300 hover:shadow-md hover:scale-[1.02] transform-gpu">
-                                <img src="assets\Nvidia.png" 
-                                     alt="NVIDIA Getting Started with Deep Learning Certificate"
-                                     class="w-full h-48 object-contain mx-auto"
-                                     loading="lazy">
+                                <div class="cert-placeholder">
+                                    <div class="text-center">
+                                        <i class="fas fa-certificate text-green-600 text-4xl mb-2"></i>
+                                        <p class="text-sm">NVIDIA Certificate</p>
+                                    </div>
+                                </div>
                             </div>
         
                             <!-- Certification Details -->
@@ -295,6 +321,206 @@
                         </a>
                     </div>
                 </div>
+
+                <!-- Python Programming Basics - Maharatech -->
+                <div class="card p-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex flex-col h-full">
+                        <div class="mb-4">
+                            <!-- Certificate Placeholder -->
+                            <div class="bg-gradient-to-br from-yellow-50 to-orange-50 p-4 rounded-xl mb-6 transition-all duration-300 hover:shadow-md hover:scale-[1.02] transform-gpu">
+                                <div class="cert-placeholder">
+                                    <div class="text-center">
+                                        <i class="fab fa-python text-yellow-600 text-4xl mb-2"></i>
+                                        <p class="text-sm">Python Certificate</p>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <!-- Certification Details -->
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-2 text-center">
+                                Python Programming Basics
+                            </h3>
+                            <div class="text-center mb-3">
+                                <div class="flex items-center justify-center gap-2 text-gray-600 mb-2">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span class="font-medium">Maharatech</span>
+                                </div>
+                                <div class="flex items-center justify-center gap-2 text-sm text-gray-500">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Issued: Sep 2, 2024</span>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- Skill Tags -->
+                        <div class="flex flex-wrap gap-2 mb-4 justify-center">
+                            <span class="skill-tag bg-yellow-100 text-yellow-800">
+                                <i class="fab fa-python mr-2"></i>Python
+                            </span>
+                            <span class="skill-tag bg-orange-100 text-orange-800">
+                                <i class="fas fa-code mr-2"></i>Programming
+                            </span>
+                            <span class="skill-tag bg-yellow-100 text-yellow-800">
+                                <i class="fas fa-laptop-code mr-2"></i>Basics
+                            </span>
+                        </div>
+        
+                        <!-- Certificate Details -->
+                        <div class="text-center mt-auto">
+                            <span class="text-sm text-gray-500">Certificate Available</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Python for Beginners - Udemy -->
+                <div class="card p-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex flex-col h-full">
+                        <div class="mb-4">
+                            <!-- Certificate Placeholder -->
+                            <div class="bg-gradient-to-br from-purple-50 to-indigo-50 p-4 rounded-xl mb-6 transition-all duration-300 hover:shadow-md hover:scale-[1.02] transform-gpu">
+                                <div class="cert-placeholder">
+                                    <div class="text-center">
+                                        <i class="fas fa-play-circle text-purple-600 text-4xl mb-2"></i>
+                                        <p class="text-sm">Udemy Certificate</p>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <!-- Certification Details -->
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-2 text-center">
+                                Python for Beginners
+                            </h3>
+                            <div class="text-center mb-3">
+                                <div class="flex items-center justify-center gap-2 text-gray-600 mb-2">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span class="font-medium">Udemy</span>
+                                </div>
+                                <div class="flex items-center justify-center gap-2 text-sm text-gray-500">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Issued: Oct 25, 2024</span>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- Skill Tags -->
+                        <div class="flex flex-wrap gap-2 mb-4 justify-center">
+                            <span class="skill-tag bg-purple-100 text-purple-800">
+                                <i class="fab fa-python mr-2"></i>Python
+                            </span>
+                            <span class="skill-tag bg-indigo-100 text-indigo-800">
+                                <i class="fas fa-book-open mr-2"></i>Beginner
+                            </span>
+                            <span class="skill-tag bg-purple-100 text-purple-800">
+                                <i class="fas fa-video mr-2"></i>Online Course
+                            </span>
+                        </div>
+        
+                        <!-- Certificate Details -->
+                        <div class="text-center mt-auto">
+                            <span class="text-sm text-gray-500">Certificate Available</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Computer Vision - Kaggle -->
+                <div class="card p-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex flex-col h-full">
+                        <div class="mb-4">
+                            <!-- Certificate Placeholder -->
+                            <div class="bg-gradient-to-br from-blue-50 to-cyan-50 p-4 rounded-xl mb-6 transition-all duration-300 hover:shadow-md hover:scale-[1.02] transform-gpu">
+                                <div class="cert-placeholder">
+                                    <div class="text-center">
+                                        <i class="fas fa-eye text-blue-600 text-4xl mb-2"></i>
+                                        <p class="text-sm">Computer Vision</p>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <!-- Certification Details -->
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-2 text-center">
+                                Computer Vision
+                            </h3>
+                            <div class="text-center mb-3">
+                                <div class="flex items-center justify-center gap-2 text-gray-600 mb-2">
+                                    <i class="fas fa-trophy"></i>
+                                    <span class="font-medium">Kaggle</span>
+                                </div>
+                                <div class="flex items-center justify-center gap-2 text-sm text-gray-500">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Issued: Aug 30, 2025</span>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- Skill Tags -->
+                        <div class="flex flex-wrap gap-2 mb-4 justify-center">
+                            <span class="skill-tag bg-blue-100 text-blue-800">
+                                <i class="fas fa-eye mr-2"></i>Computer Vision
+                            </span>
+                            <span class="skill-tag bg-cyan-100 text-cyan-800">
+                                <i class="fas fa-image mr-2"></i>Image Processing
+                            </span>
+                            <span class="skill-tag bg-blue-100 text-blue-800">
+                                <i class="fas fa-robot mr-2"></i>AI/ML
+                            </span>
+                        </div>
+        
+                        <!-- Certificate Details -->
+                        <div class="text-center mt-auto">
+                            <span class="text-sm text-gray-500">Certificate Available</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Intro to Deep Learning - Kaggle -->
+                <div class="card p-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex flex-col h-full">
+                        <div class="mb-4">
+                            <!-- Certificate Placeholder -->
+                            <div class="bg-gradient-to-br from-emerald-50 to-teal-50 p-4 rounded-xl mb-6 transition-all duration-300 hover:shadow-md hover:scale-[1.02] transform-gpu">
+                                <div class="cert-placeholder">
+                                    <div class="text-center">
+                                        <i class="fas fa-brain text-emerald-600 text-4xl mb-2"></i>
+                                        <p class="text-sm">Deep Learning</p>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <!-- Certification Details -->
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-2 text-center">
+                                Intro to Deep Learning
+                            </h3>
+                            <div class="text-center mb-3">
+                                <div class="flex items-center justify-center gap-2 text-gray-600 mb-2">
+                                    <i class="fas fa-trophy"></i>
+                                    <span class="font-medium">Kaggle</span>
+                                </div>
+                                <div class="flex items-center justify-center gap-2 text-sm text-gray-500">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Issued: Aug 30, 2025</span>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- Skill Tags -->
+                        <div class="flex flex-wrap gap-2 mb-4 justify-center">
+                            <span class="skill-tag bg-emerald-100 text-emerald-800">
+                                <i class="fas fa-brain mr-2"></i>Deep Learning
+                            </span>
+                            <span class="skill-tag bg-teal-100 text-teal-800">
+                                <i class="fas fa-network-wired mr-2"></i>Neural Networks
+                            </span>
+                            <span class="skill-tag bg-emerald-100 text-emerald-800">
+                                <i class="fas fa-code mr-2"></i>Introduction
+                            </span>
+                        </div>
+        
+                        <!-- Certificate Details -->
+                        <div class="text-center mt-auto">
+                            <span class="text-sm text-gray-500">Certificate Available</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -312,11 +538,15 @@
                             player statistics, seasonal trends, and historical data visualization using Power BI.
                         </p>
                         
-                        <!-- Single Image Display -->
-                        <div class="grid grid-cols-1 gap-4 mb-6">
-                            <img src="assets\Premier Dashboard.png" 
-                                alt="Premier League Dashboard showing 30 years of football analytics" 
-                                class="rounded-lg w-full h-73 aspect-video object-cover project-image">
+                        <!-- Project Placeholder -->
+                        <div class="mb-6">
+                            <div class="project-placeholder">
+                                <div class="text-center">
+                                    <i class="fas fa-chart-bar text-4xl mb-2 text-blue-600"></i>
+                                    <p>Premier League Dashboard</p>
+                                    <p class="text-sm">Power BI Analytics</p>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="flex flex-wrap gap-2 mb-6">
@@ -346,14 +576,15 @@
                             geographical distributions, and performance metrics using advanced data visualization techniques.
                         </p>
                         
-                        <!-- Dual Image Display -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                            <img src="assets\uber .png" 
-                                alt="Uber Dashboard - Trip Analytics Overview" 
-                                class="rounded-lg w-full h-73 aspect-video object-cover project-image">
-                            <img src="assets\uber1.png" 
-                                alt="Uber Dashboard - Revenue and Geographic Analysis" 
-                                class="rounded-lg w-full h-73 aspect-video object-cover project-image">
+                        <!-- Project Placeholder -->
+                        <div class="mb-6">
+                            <div class="project-placeholder">
+                                <div class="text-center">
+                                    <i class="fas fa-car text-4xl mb-2 text-purple-600"></i>
+                                    <p>Uber Analytics Dashboard</p>
+                                    <p class="text-sm">Transportation Data Analysis</p>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="flex flex-wrap gap-2 mb-6">
@@ -365,6 +596,118 @@
                         </div>
 
                         <a href="#" 
+                           class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition-colors duration-300"
+                           target="_blank" 
+                           rel="noopener">
+                            <i class="fab fa-linkedin"></i>
+                            View on LinkedIn
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Fast Food Sales Dashboard -->
+                <div class="card overflow-hidden" data-aos="fade-up">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-2">Fast Food Sales Dashboard</h3>
+                        <p class="text-gray-600 mb-4">
+                            Interactive Excel dashboard analyzing fast food sales performance with insights on revenue trends, 
+                            product performance, and customer behavior patterns using Power Query and Power Pivot.
+                        </p>
+                        
+                        <div class="mb-6">
+                            <div class="project-placeholder">
+                                <div class="text-center">
+                                    <i class="fas fa-hamburger text-4xl mb-2 text-green-600"></i>
+                                    <p>Fast Food Sales</p>
+                                    <p class="text-sm">Excel Dashboard</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="skill-tag bg-green-100 text-green-800">Excel</span>
+                            <span class="skill-tag bg-green-100 text-green-800">Power Query</span>
+                            <span class="skill-tag bg-green-100 text-green-800">Power Pivot</span>
+                            <span class="skill-tag bg-green-100 text-green-800">Sales Analytics</span>
+                            <span class="skill-tag bg-green-100 text-green-800">Data Modeling</span>
+                        </div>
+
+                        <a href="https://www.linkedin.com/posts/mohamed-elkomy-me30_excel-powerquery-powerpivot-activity-7361053236251750400-g0Wj?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFy1uJABT7A0h6vFFqUbMEtm7eeEruLIDFI" 
+                           class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition-colors duration-300"
+                           target="_blank" 
+                           rel="noopener">
+                            <i class="fab fa-linkedin"></i>
+                            View on LinkedIn
+                        </a>
+                    </div>
+                </div>
+
+                <!-- FMCG Sales Dashboard -->
+                <div class="card overflow-hidden" data-aos="fade-up">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-2">FMCG Sales Dashboard</h3>
+                        <p class="text-gray-600 mb-4">
+                            Comprehensive Fast Moving Consumer Goods sales analysis using Excel, featuring market trends, 
+                            brand performance, regional insights, and profitability metrics with advanced data modeling.
+                        </p>
+                        
+                        <div class="mb-6">
+                            <div class="project-placeholder">
+                                <div class="text-center">
+                                    <i class="fas fa-shopping-cart text-4xl mb-2 text-purple-600"></i>
+                                    <p>FMCG Sales Analysis</p>
+                                    <p class="text-sm">Market Analytics</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="skill-tag bg-purple-100 text-purple-800">Excel</span>
+                            <span class="skill-tag bg-purple-100 text-purple-800">Power Query</span>
+                            <span class="skill-tag bg-purple-100 text-purple-800">Power Pivot</span>
+                            <span class="skill-tag bg-purple-100 text-purple-800">FMCG Analytics</span>
+                            <span class="skill-tag bg-purple-100 text-purple-800">Market Analysis</span>
+                        </div>
+
+                        <a href="https://www.linkedin.com/posts/mohamed-elkomy-me30_digitalegyptpioneers-exceldashboard-dataanalysis-activity-7354546622581633024-xG9z?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFy1uJABT7A0h6vFFqUbMEtm7eeEruLIDFI" 
+                           class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition-colors duration-300"
+                           target="_blank" 
+                           rel="noopener">
+                            <i class="fab fa-linkedin"></i>
+                            View on LinkedIn
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Social Media Engagement Dashboard -->
+                <div class="card overflow-hidden" data-aos="fade-up">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-2">Social Media Engagement Dashboard</h3>
+                        <p class="text-gray-600 mb-4">
+                            Advanced social media analytics dashboard built with Excel, tracking engagement metrics, follower growth, 
+                            content performance, and social media ROI across multiple platforms using Power Query and Power Pivot.
+                        </p>
+                        
+                        <div class="mb-6">
+                            <div class="project-placeholder">
+                                <div class="text-center">
+                                    <i class="fas fa-share-alt text-4xl mb-2 text-pink-600"></i>
+                                    <p>Social Media Analytics</p>
+                                    <p class="text-sm">Engagement Dashboard</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="skill-tag bg-pink-100 text-pink-800">Excel</span>
+                            <span class="skill-tag bg-pink-100 text-pink-800">Power Query</span>
+                            <span class="skill-tag bg-pink-100 text-pink-800">Power Pivot</span>
+                            <span class="skill-tag bg-pink-100 text-pink-800">Social Media Analytics</span>
+                            <span class="skill-tag bg-pink-100 text-pink-800">Engagement Metrics</span>
+                            <span class="skill-tag bg-pink-100 text-pink-800">Digital Marketing</span>
+                        </div>
+
+                        <a href="https://www.linkedin.com/posts/mohamed-elkomy-me30_excel-powerquery-powerpivot-activity-7361415132926697472-mUyM?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFy1uJABT7A0h6vFFqUbMEtm7eeEruLIDFI" 
                            class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition-colors duration-300"
                            target="_blank" 
                            rel="noopener">
@@ -412,7 +755,7 @@
                     </div>
                     <div class="flex items-center gap-3">
                         <i class="fas fa-file-alt text-blue-500"></i>
-                        <a href="assets\Mohamed_Elkomy_CV.pdf" target="_blank" class="text-lg text-gray-600 hover:text-blue-600">View My CV</a>
+                        <a href="assets/Mohamed_Elkomy_CV.pdf" target="_blank" class="text-lg text-gray-600 hover:text-blue-600">View My CV</a>
                     </div>
                 </div>
             </div>
@@ -435,23 +778,7 @@
 
     <!-- Initialize AOS -->
     <script>
-        // Lightbox functionality
-        document.querySelectorAll('.project-image').forEach(img => {
-            img.addEventListener('click', () => {
-                const lightbox = document.getElementById('lightbox');
-                const lightboxImg = document.getElementById('lightboxImage');
-                lightboxImg.src = img.src;
-                lightboxImg.alt = img.alt;
-                lightbox.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-            });
-        });
-
-        document.getElementById('closeLightbox').addEventListener('click', () => {
-            document.getElementById('lightbox').classList.add('hidden');
-            document.body.style.overflow = '';
-        });
-        
+        // Initialize AOS
         AOS.init({
             duration: 800,
             offset: 100,
@@ -491,9 +818,58 @@
         });
 
         // Toggle Mobile Menu
-        document.getElementById('menuToggle').addEventListener('click', function() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('hidden');
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (mobileMenu && !mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+
+        // Lightbox functionality
+        document.querySelectorAll('.project-image').forEach(img => {
+            img.addEventListener('click', () => {
+                const lightbox = document.getElementById('lightbox');
+                const lightboxImg = document.getElementById('lightboxImage');
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightbox.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        const closeLightbox = document.getElementById('closeLightbox');
+        const lightbox = document.getElementById('lightbox');
+        
+        if (closeLightbox) {
+            closeLightbox.addEventListener('click', () => {
+                lightbox.classList.add('hidden');
+                document.body.style.overflow = '';
+            });
+        }
+
+        // Close lightbox when clicking outside image
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close lightbox with ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+                lightbox.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
         });
     </script>
 </body>
