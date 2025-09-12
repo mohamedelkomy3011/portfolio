@@ -81,6 +81,10 @@
         .project-image {
             transition: all 0.3s ease;
             cursor: zoom-in;
+            width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            object-fit: cover;
         }
 
         .profile-image {
@@ -88,6 +92,8 @@
             border: 4px solid white;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 100%;
+            height: auto;
         }
 
         .profile-image:hover {
@@ -190,47 +196,157 @@
             color: #6b7280;
             border: 2px dashed #d1d5db;
         }
+
+        .dual-image-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .dual-image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            object-fit: cover;
+            transition: all 0.3s ease;
+            cursor: zoom-in;
+        }
+
+        .dual-image-container img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .skill-category {
+            margin-bottom: 2rem;
+        }
+
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .skill-bar {
+            height: 10px;
+            background: #e5e7eb;
+            border-radius: 5px;
+            overflow: hidden;
+            flex-grow: 1;
+            margin: 0 1rem;
+        }
+
+        .skill-progress {
+            height: 100%;
+            border-radius: 5px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+        }
+
+        .skill-percent {
+            font-weight: 600;
+            color: #4b5563;
+            min-width: 40px;
+            text-align: right;
+        }
+
+        @media (max-width: 768px) {
+            .dual-image-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .skill-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .skill-bar {
+                width: 100%;
+                margin: 0.5rem 0;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="fixed w-full bg-white shadow-sm z-50">
-        <div class="max-w-6xl mx-auto px-4 py-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <h1 class="text-2xl font-bold gradient-text mb-4 md:mb-0">Mohamed Elkomy</h1>
-                <div class="flex items-center gap-6">
-                    <!-- Hamburger Menu for Mobile -->
-                    <button id="menuToggle" class="md:hidden text-gray-600 hover:text-blue-600">
-                        <i class="fas fa-bars"></i>
-                    </button>
+<!-- Navigation -->
+<nav class="fixed w-full bg-white shadow-sm z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <h1 class="text-2xl font-bold gradient-text mb-4 md:mb-0">Mohamed    Elkomy</h1>
+            <div class="flex items-center gap-6">
+                <!-- Hamburger Menu for Mobile -->
+                <button id="menuToggle" class="md:hidden text-gray-600 hover:text-blue-600">
+                    <i class="fas fa-bars"></i>
+                </button>
 
-                    <!-- Desktop and Mobile View -->
-                    <div id="menu" class="hidden md:flex gap-6">
-                        <a href="#about" class="nav-link text-gray-600 hover:text-blue-600">About</a>
-                        
-                        <!-- CV and LinkedIn links -->
-                        <a href="assets/Mohamed_Elkomy_CV.pdf" target="_blank" class="text-transparent bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text rounded-lg py-3 px-6 flex items-center justify-center gap-2 transition-all duration-300 shadow-lg hover:shadow-xl">
-                            <i class="fas fa-file-alt text-xl"></i>
-                            <span class="text-lg">CV</span>
+                <!-- Desktop and Mobile View -->
+                <div id="menu" class="hidden md:flex gap-6 items-center">
+                    <!-- جميع الأقسام في مربع واحد -->
+                    <div class="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg p-1 shadow-lg">
+                        <a href="#about" class="flex items-center gap-2 text-white py-2 px-4 rounded-md transition-all duration-300 hover:bg-white/10">
+                            <i class="fas fa-user"></i>
+                            <span>About</span>
                         </a>
-                        <a href="https://www.linkedin.com/in/mohamed-elkomy-me30/" target="_blank" class="text-transparent bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text rounded-lg py-3 px-6 flex items-center justify-center gap-2 transition-all duration-300 shadow-lg hover:shadow-xl">
-                            <i class="fab fa-linkedin text-xl"></i>
-                            <span class="text-lg">LinkedIn</span>
+                        <div class="h-6 w-px bg-white/40"></div>
+                        <a href="#skills" class="flex items-center gap-2 text-white py-2 px-4 rounded-md transition-all duration-300 hover:bg-white/10">
+                            <i class="fas fa-code"></i>
+                            <span>Skills</span>
+                        </a>
+                        <div class="h-6 w-px bg-white/40"></div>
+                        <a href="#certifications" class="flex items-center gap-2 text-white py-2 px-4 rounded-md transition-all duration-300 hover:bg-white/10">
+                            <i class="fas fa-certificate"></i>
+                            <span>Certifications</span>
+                        </a>
+                        <div class="h-6 w-px bg-white/40"></div>
+                        <a href="#projects" class="flex items-center gap-2 text-white py-2 px-4 rounded-md transition-all duration-300 hover:bg-white/10">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>Projects</span>
+                        </a>
+                        <div class="h-6 w-px bg-white/40"></div>
+                        <a href="#contact" class="flex items-center gap-2 text-white py-2 px-4 rounded-md transition-all duration-300 hover:bg-white/10">
+                            <i class="fas fa-envelope"></i>
+                            <span>Contact</span>
+                        </a>
+                        <div class="h-6 w-px bg-white/40"></div>
+                        <a href="assets/Mohamed_Elkomy_CV.pdf" target="_blank" class="flex items-center gap-2 text-white py-2 px-4 rounded-md transition-all duration-300 hover:bg-white/10">
+                            <i class="fas fa-file-alt"></i>
+                            <span>CV</span>
+                        </a>
+                        <div class="h-6 w-px bg-white/40"></div>
+                        <a href="https://www.linkedin.com/in/mohamed-elkomy-me30/" target="_blank" class="flex items-center gap-2 text-white py-2 px-4 rounded-md transition-all duration-300 hover:bg-white/10">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn</span>
                         </a>
                     </div>
+                </div>
 
-                    <!-- Mobile Menu -->
-                    <div id="mobileMenu" class="md:hidden fixed top-0 left-0 right-0 bg-white z-40 p-6 shadow-md hidden">
-                        <ul>
-                            <li><a href="#about" class="block text-gray-600 hover:text-blue-600 mb-4">About</a></li>
-                            <li><a href="assets/Mohamed_Elkomy_CV.pdf" target="_blank" class="block text-transparent bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text py-3 px-6 mb-4">CV</a></li>
-                            <li><a href="https://www.linkedin.com/in/mohamed-elkomy-me30/" target="_blank" class="block text-transparent bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text py-3 px-6 mb-4">LinkedIn</a></li>
-                        </ul>
-                    </div>
+                <!-- Mobile Menu -->
+                <div id="mobileMenu" class="md:hidden fixed top-0 left-0 right-0 bg-white z-40 p-6 shadow-md hidden">
+                    <ul>
+                        <li><a href="#about" class="block text-gray-600 hover:text-blue-600 mb-4 flex items-center gap-2"><i class="fas fa-user w-5"></i> About</a></li>
+                        <li><a href="#skills" class="block text-gray-600 hover:text-blue-600 mb-4 flex items-center gap-2"><i class="fas fa-code w-5"></i> Skills</a></li>
+                        <li><a href="#certifications" class="block text-gray-600 hover:text-blue-600 mb-4 flex items-center gap-2"><i class="fas fa-certificate w-5"></i> Certifications</a></li>
+                        <li><a href="#projects" class="block text-gray-600 hover:text-blue-600 mb-4 flex items-center gap-2"><i class="fas fa-project-diagram w-5"></i> Projects</a></li>
+                        <li><a href="#contact" class="block text-gray-600 hover:text-blue-600 mb-4 flex items-center gap-2"><i class="fas fa-envelope w-5"></i> Contact</a></li>
+                        <li class="border-t pt-4 mt-4">
+                            <div class="flex flex-col gap-3">
+                                <a href="assets/Mohamed_Elkomy_CV.pdf" target="_blank" class="flex items-center gap-2 text-blue-600 font-medium">
+                                    <i class="fas fa-file-alt"></i>
+                                    <span>View CV</span>
+                                </a>
+                                <a href="https://www.linkedin.com/in/mohamed-elkomy-me30/" target="_blank" class="flex items-center gap-2 text-blue-600 font-medium">
+                                    <i class="fab fa-linkedin"></i>
+                                    <span>LinkedIn Profile</span>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <!-- Main Content -->
     <main class="max-w-6xl mx-auto px-4 pt-24 pb-12">
@@ -238,11 +354,9 @@
         <section id="about" class="mb-16">
             <div class="card p-8" data-aos="fade-up">
                 <div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
-                    <!-- Profile Picture Placeholder -->
+                    <!-- Profile Picture -->
                     <div class="w-48 h-48 flex-shrink-0" data-aos="fade-right" data-aos-delay="200">
-                        <div class="profile-image w-full h-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center text-blue-600 text-4xl">
-                            <i class="fas fa-user"></i>
-                        </div>
+                        <img src="assets\my_photo.jpg" alt="Mohamed Elkomy" class="profile-image">
                     </div>
                     
                     <!-- About Content -->
@@ -258,6 +372,110 @@
             </div>
         </section>
         
+        <!-- Skills Section -->
+        <section id="skills" class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 gradient-text" data-aos="fade-up">Skills</h2>
+            <div class="card p-8" data-aos="fade-up">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Technical Skills -->
+                    <div>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-6 gradient-text">Technical Skills</h3>
+                        
+                        <div class="skill-category">
+                            <h4 class="text-lg font-medium text-gray-700 mb-4">Machine Learning & AI</h4>
+                            <div class="skill-item">
+                                <span>Machine Learning</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <div class="skill-item">
+                                <span>Deep Learning</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%"></div>
+                                </div>
+                                <span class="skill-percent">80%</span>
+                            </div>
+                            <div class="skill-item">
+                                <span>Data Analysis</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                                <span class="skill-percent">90%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4 class="text-lg font-medium text-gray-700 mb-4">Programming Languages</h4>
+                            <div class="skill-item">
+                                <span>Python</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 88%"></div>
+                                </div>
+                                <span class="skill-percent">88%</span>
+                            </div>
+                            <div class="skill-item">
+                                <span>SQL</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 82%"></div>
+                                </div>
+                                <span class="skill-percent">82%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tools & Technologies -->
+                    <div>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-6 gradient-text">Tools & Technologies</h3>
+                        
+                        <div class="skill-category">
+                            <h4 class="text-lg font-medium text-gray-700 mb-4">Data Visualization</h4>
+                            <div class="skill-item">
+                                <span>Power BI</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                                <span class="skill-percent">90%</span>
+                            </div>
+                            <div class="skill-item">
+                                <span>Excel</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 92%"></div>
+                                </div>
+                                <span class="skill-percent">92%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4 class="text-lg font-medium text-gray-700 mb-4">Data Science Libraries</h4>
+                            <div class="skill-item">
+                                <span>Matplotlib</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <div class="skill-item">
+                                <span>NumPy</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%"></div>
+                                </div>
+                                <span class="skill-percent">80%</span>
+                            </div>
+                            <div class="skill-item">
+                                <span>Scikit-learn</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 83%"></div>
+                                </div>
+                                <span class="skill-percent">83%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
         <!-- Certifications Section -->
         <section id="certifications" class="mb-16">
             <h2 class="text-3xl font-bold mb-8 gradient-text" data-aos="fade-up">Certifications</h2>
@@ -267,14 +485,9 @@
                 <div class="card p-6" data-aos="fade-up">
                     <div class="flex flex-col h-full">
                         <div class="mb-4">
-                            <!-- Certificate Placeholder -->
+                            <!-- Certificate Image -->
                             <div class="bg-gradient-to-br from-green-50 to-blue-50 p-4 rounded-xl mb-6 transition-all duration-300 hover:shadow-md hover:scale-[1.02] transform-gpu">
-                                <div class="cert-placeholder">
-                                    <div class="text-center">
-                                        <i class="fas fa-certificate text-green-600 text-4xl mb-2"></i>
-                                        <p class="text-sm">NVIDIA Certificate</p>
-                                    </div>
-                                </div>
+                                <img src="assets\Nvidia.png" alt="NVIDIA Deep Learning Certificate" class="w-full h-auto rounded-lg">
                             </div>
         
                             <!-- Certification Details -->
@@ -326,14 +539,9 @@
                 <div class="card p-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="flex flex-col h-full">
                         <div class="mb-4">
-                            <!-- Certificate Placeholder -->
+                            <!-- Certificate Image -->
                             <div class="bg-gradient-to-br from-yellow-50 to-orange-50 p-4 rounded-xl mb-6 transition-all duration-300 hover:shadow-md hover:scale-[1.02] transform-gpu">
-                                <div class="cert-placeholder">
-                                    <div class="text-center">
-                                        <i class="fab fa-python text-yellow-600 text-4xl mb-2"></i>
-                                        <p class="text-sm">Python Certificate</p>
-                                    </div>
-                                </div>
+                                <img src="assets\python_mahara .png" alt="Python Programming Basics Certificate" class="w-full h-auto rounded-lg">
                             </div>
         
                             <!-- Certification Details -->
@@ -365,10 +573,14 @@
                             </span>
                         </div>
         
-                        <!-- Certificate Details -->
-                        <div class="text-center mt-auto">
-                            <span class="text-sm text-gray-500">Certificate Available</span>
-                        </div>
+                        <!-- Certificate Link -->
+                        <a href="assets\Course_Certificate_En.pdf" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="inline-flex items-center justify-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition-colors duration-300 mt-auto">
+                            <i class="fas fa-external-link-alt"></i>
+                            View Certificate 
+                        </a>
                     </div>
                 </div>
 
@@ -376,14 +588,9 @@
                 <div class="card p-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="flex flex-col h-full">
                         <div class="mb-4">
-                            <!-- Certificate Placeholder -->
+                            <!-- Certificate Image -->
                             <div class="bg-gradient-to-br from-purple-50 to-indigo-50 p-4 rounded-xl mb-6 transition-all duration-300 hover:shadow-md hover:scale-[1.02] transform-gpu">
-                                <div class="cert-placeholder">
-                                    <div class="text-center">
-                                        <i class="fas fa-play-circle text-purple-600 text-4xl mb-2"></i>
-                                        <p class="text-sm">Udemy Certificate</p>
-                                    </div>
-                                </div>
+                                <img src="assets\python_udemy.png" alt="Python for Beginners Certificate" class="w-full h-auto rounded-lg">
                             </div>
         
                             <!-- Certification Details -->
@@ -415,10 +622,14 @@
                             </span>
                         </div>
         
-                        <!-- Certificate Details -->
-                        <div class="text-center mt-auto">
-                            <span class="text-sm text-gray-500">Certificate Available</span>
-                        </div>
+                        <!-- Certificate Link -->
+                        <a href="assets\python for begiiners.pdf" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="inline-flex items-center justify-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition-colors duration-300 mt-auto">
+                            <i class="fas fa-external-link-alt"></i>
+                            View Certificate 
+                        </a>
                     </div>
                 </div>
 
@@ -426,14 +637,9 @@
                 <div class="card p-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="flex flex-col h-full">
                         <div class="mb-4">
-                            <!-- Certificate Placeholder -->
+                            <!-- Certificate Image -->
                             <div class="bg-gradient-to-br from-blue-50 to-cyan-50 p-4 rounded-xl mb-6 transition-all duration-300 hover:shadow-md hover:scale-[1.02] transform-gpu">
-                                <div class="cert-placeholder">
-                                    <div class="text-center">
-                                        <i class="fas fa-eye text-blue-600 text-4xl mb-2"></i>
-                                        <p class="text-sm">Computer Vision</p>
-                                    </div>
-                                </div>
+                                <img src="assets\Mohamed Elkomy - Computer Vision.png" alt="Computer Vision Certificate" class="w-full h-auto rounded-lg">
                             </div>
         
                             <!-- Certification Details -->
@@ -465,10 +671,14 @@
                             </span>
                         </div>
         
-                        <!-- Certificate Details -->
-                        <div class="text-center mt-auto">
-                            <span class="text-sm text-gray-500">Certificate Available</span>
-                        </div>
+                        <!-- Verification Link -->
+                        <a href="https://www.kaggle.com/learn/certification/muhamedelkomy/computer-vision" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="inline-flex items-center justify-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition-colors duration-300 mt-auto">
+                            <i class="fas fa-external-link-alt"></i>
+                            Verify Certificate
+                        </a>
                     </div>
                 </div>
 
@@ -476,14 +686,9 @@
                 <div class="card p-6" data-aos="fade-up" data-aos-delay="400">
                     <div class="flex flex-col h-full">
                         <div class="mb-4">
-                            <!-- Certificate Placeholder -->
+                            <!-- Certificate Image -->
                             <div class="bg-gradient-to-br from-emerald-50 to-teal-50 p-4 rounded-xl mb-6 transition-all duration-300 hover:shadow-md hover:scale-[1.02] transform-gpu">
-                                <div class="cert-placeholder">
-                                    <div class="text-center">
-                                        <i class="fas fa-brain text-emerald-600 text-4xl mb-2"></i>
-                                        <p class="text-sm">Deep Learning</p>
-                                    </div>
-                                </div>
+                                <img src="assets\Mohamed Elkomy - Intro to Deep Learning.png" alt="Intro to Deep Learning Certificate" class="w-full h-auto rounded-lg">
                             </div>
         
                             <!-- Certification Details -->
@@ -515,10 +720,14 @@
                             </span>
                         </div>
         
-                        <!-- Certificate Details -->
-                        <div class="text-center mt-auto">
-                            <span class="text-sm text-gray-500">Certificate Available</span>
-                        </div>
+                        <!-- Verification Link -->
+                        <a href="https://www.kaggle.com/learn/certification/muhamedelkomy/intro-to-deep-learning" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="inline-flex items-center justify-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition-colors duration-300 mt-auto">
+                            <i class="fas fa-external-link-alt"></i>
+                            Verify Certificate
+                        </a>
                     </div>
                 </div>
             </div>
@@ -538,15 +747,9 @@
                             player statistics, seasonal trends, and historical data visualization using Power BI.
                         </p>
                         
-                        <!-- Project Placeholder -->
+                        <!-- Project Image -->
                         <div class="mb-6">
-                            <div class="project-placeholder">
-                                <div class="text-center">
-                                    <i class="fas fa-chart-bar text-4xl mb-2 text-blue-600"></i>
-                                    <p>Premier League Dashboard</p>
-                                    <p class="text-sm">Power BI Analytics</p>
-                                </div>
-                            </div>
+                            <img src="assets\Premier Dashboard.png" alt="Premier League Dashboard" class="project-image">
                         </div>
 
                         <div class="flex flex-wrap gap-2 mb-6">
@@ -576,15 +779,10 @@
                             geographical distributions, and performance metrics using advanced data visualization techniques.
                         </p>
                         
-                        <!-- Project Placeholder -->
-                        <div class="mb-6">
-                            <div class="project-placeholder">
-                                <div class="text-center">
-                                    <i class="fas fa-car text-4xl mb-2 text-purple-600"></i>
-                                    <p>Uber Analytics Dashboard</p>
-                                    <p class="text-sm">Transportation Data Analysis</p>
-                                </div>
-                            </div>
+                        <!-- Dual Images for Uber Dashboard -->
+                        <div class="dual-image-container mb-6">
+                            <img src="assets\uber .png" alt="Uber Dashboard Part 1">
+                            <img src="assets\uber1.png" alt="Uber Dashboard Part 2">
                         </div>
 
                         <div class="flex flex-wrap gap-2 mb-6">
@@ -614,14 +812,9 @@
                             product performance, and customer behavior patterns using Power Query and Power Pivot.
                         </p>
                         
+                        <!-- Project Image -->
                         <div class="mb-6">
-                            <div class="project-placeholder">
-                                <div class="text-center">
-                                    <i class="fas fa-hamburger text-4xl mb-2 text-green-600"></i>
-                                    <p>Fast Food Sales</p>
-                                    <p class="text-sm">Excel Dashboard</p>
-                                </div>
-                            </div>
+                            <img src="assets\fast food sales .png" alt="Fast Food Sales Dashboard" class="project-image">
                         </div>
 
                         <div class="flex flex-wrap gap-2 mb-6">
@@ -651,14 +844,9 @@
                             brand performance, regional insights, and profitability metrics with advanced data modeling.
                         </p>
                         
+                        <!-- Project Image -->
                         <div class="mb-6">
-                            <div class="project-placeholder">
-                                <div class="text-center">
-                                    <i class="fas fa-shopping-cart text-4xl mb-2 text-purple-600"></i>
-                                    <p>FMCG Sales Analysis</p>
-                                    <p class="text-sm">Market Analytics</p>
-                                </div>
-                            </div>
+                            <img src="assets\FMCG sales .png" alt="FMCG Sales Dashboard" class="project-image">
                         </div>
 
                         <div class="flex flex-wrap gap-2 mb-6">
@@ -688,14 +876,9 @@
                             content performance, and social media ROI across multiple platforms using Power Query and Power Pivot.
                         </p>
                         
+                        <!-- Project Image -->
                         <div class="mb-6">
-                            <div class="project-placeholder">
-                                <div class="text-center">
-                                    <i class="fas fa-share-alt text-4xl mb-2 text-pink-600"></i>
-                                    <p>Social Media Analytics</p>
-                                    <p class="text-sm">Engagement Dashboard</p>
-                                </div>
-                            </div>
+                            <img src="assets\social media engangement .png" alt="Social Media Engagement Dashboard" class="project-image">
                         </div>
 
                         <div class="flex flex-wrap gap-2 mb-6">
@@ -835,7 +1018,7 @@
         });
 
         // Lightbox functionality
-        document.querySelectorAll('.project-image').forEach(img => {
+        document.querySelectorAll('.project-image, .dual-image-container img').forEach(img => {
             img.addEventListener('click', () => {
                 const lightbox = document.getElementById('lightbox');
                 const lightboxImg = document.getElementById('lightboxImage');
@@ -866,7 +1049,7 @@
 
         // Close lightbox with ESC key
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+            if (e.key === 'Eescape' && !lightbox.classList.contains('hidden')) {
                 lightbox.classList.add('hidden');
                 document.body.style.overflow = '';
             }
