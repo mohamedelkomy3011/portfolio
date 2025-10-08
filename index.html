@@ -277,27 +277,6 @@
             text-align: right;
         }
 
-        .theme-toggle {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            color: var(--text-primary);
-            padding: 0.5rem;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 2.5rem;
-            height: 2.5rem;
-        }
-
-        .theme-toggle:hover {
-            background: var(--bg-secondary);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
         @media (max-width: 768px) {
             .dual-image-container {
                 grid-template-columns: 1fr;
@@ -322,11 +301,6 @@
         <div class="flex flex-col md:flex-row justify-between items-center">
             <h1 class="text-2xl font-bold gradient-text mb-4 md:mb-0">Mohamed Elkomy</h1>
             <div class="flex items-center gap-4">
-                <!-- Theme Toggle - Small in top right -->
-                <button id="themeToggle" class="theme-toggle">
-                    <i class="fas fa-sun text-sm"></i>
-                </button>
-
                 <!-- Hamburger Menu for Mobile -->
                 <button id="menuToggle" class="md:hidden text-gray-300 hover:text-blue-400">
                     <i class="fas fa-bars"></i>
@@ -407,7 +381,7 @@
 </nav>
 
     <!-- Main Content -->
-    <main class="max-w-6xl mx-auto px-4 pt-24 pb-12">
+    <main class="max-w-6xl mx-auto px-4 pt-32 pb-12"> <!-- Changed pt-24 to pt-32 for more space -->
         <!-- About Section -->
         <section id="about" class="mb-16">
             <div class="card p-8" data-aos="fade-up">
@@ -749,7 +723,7 @@
                         </div>
         
                         <!-- Certificate Link -->
-                        <a href="assets\python for begiiners.pdf" 
+                        <a href="assets\python for begiinners.pdf" 
                            target="_blank" 
                            rel="noopener noreferrer"
                            class="inline-flex items-center justify-center gap-2 text-blue-400 hover:text-blue-300 font-medium transition-colors duration-300 mt-auto">
@@ -1110,34 +1084,6 @@
             offset: 100,
             once: true
         });
-
-        // Theme Toggle Functionality
-        const themeToggle = document.getElementById('themeToggle');
-        const body = document.body;
-        
-        // Check for saved theme preference or default to dark
-        const currentTheme = localStorage.getItem('theme') || 'dark';
-        body.setAttribute('data-theme', currentTheme);
-        updateThemeToggle(currentTheme);
-
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = body.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            body.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeToggle(newTheme);
-        });
-
-        function updateThemeToggle(theme) {
-            const icon = themeToggle.querySelector('i');
-            
-            if (theme === 'dark') {
-                icon.className = 'fas fa-sun text-sm';
-            } else {
-                icon.className = 'fas fa-moon text-sm';
-            }
-        }
 
         // Scroll to Top Functionality
         const scrollToTop = document.getElementById('scrollToTop');
