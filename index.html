@@ -281,18 +281,21 @@
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             color: var(--text-primary);
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 50%;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
         }
 
         .theme-toggle:hover {
             background: var(--bg-secondary);
             transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
         @media (max-width: 768px) {
@@ -318,11 +321,10 @@
     <div class="max-w-6xl mx-auto px-4 py-4">
         <div class="flex flex-col md:flex-row justify-between items-center">
             <h1 class="text-2xl font-bold gradient-text mb-4 md:mb-0">Mohamed Elkomy</h1>
-            <div class="flex items-center gap-6">
-                <!-- Theme Toggle -->
+            <div class="flex items-center gap-4">
+                <!-- Theme Toggle - Small in top right -->
                 <button id="themeToggle" class="theme-toggle">
-                    <i class="fas fa-sun"></i>
-                    <span>Light Mode</span>
+                    <i class="fas fa-sun text-sm"></i>
                 </button>
 
                 <!-- Hamburger Menu for Mobile -->
@@ -373,19 +375,25 @@
 
                 <!-- Mobile Menu -->
                 <div id="mobileMenu" class="md:hidden fixed top-0 left-0 right-0 bg-slate-800 z-40 p-6 shadow-md hidden" style="background: var(--bg-secondary);">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-xl font-bold gradient-text">Menu</h2>
+                        <button id="closeMobileMenu" class="text-gray-300 hover:text-blue-400">
+                            <i class="fas fa-times text-2xl"></i>
+                        </button>
+                    </div>
                     <ul>
-                        <li><a href="#about" class="block text-gray-300 hover:text-blue-400 mb-4 flex items-center gap-2"><i class="fas fa-user w-5"></i> About</a></li>
-                        <li><a href="#skills" class="block text-gray-300 hover:text-blue-400 mb-4 flex items-center gap-2"><i class="fas fa-code w-5"></i> Skills</a></li>
-                        <li><a href="#certifications" class="block text-gray-300 hover:text-blue-400 mb-4 flex items-center gap-2"><i class="fas fa-certificate w-5"></i> Certifications</a></li>
-                        <li><a href="#projects" class="block text-gray-300 hover:text-blue-400 mb-4 flex items-center gap-2"><i class="fas fa-project-diagram w-5"></i> Projects</a></li>
-                        <li><a href="#contact" class="block text-gray-300 hover:text-blue-400 mb-4 flex items-center gap-2"><i class="fas fa-envelope w-5"></i> Contact</a></li>
+                        <li><a href="#about" class="block text-gray-300 hover:text-blue-400 mb-4 flex items-center gap-2 py-2"><i class="fas fa-user w-5"></i> About</a></li>
+                        <li><a href="#skills" class="block text-gray-300 hover:text-blue-400 mb-4 flex items-center gap-2 py-2"><i class="fas fa-code w-5"></i> Skills</a></li>
+                        <li><a href="#certifications" class="block text-gray-300 hover:text-blue-400 mb-4 flex items-center gap-2 py-2"><i class="fas fa-certificate w-5"></i> Certifications</a></li>
+                        <li><a href="#projects" class="block text-gray-300 hover:text-blue-400 mb-4 flex items-center gap-2 py-2"><i class="fas fa-project-diagram w-5"></i> Projects</a></li>
+                        <li><a href="#contact" class="block text-gray-300 hover:text-blue-400 mb-4 flex items-center gap-2 py-2"><i class="fas fa-envelope w-5"></i> Contact</a></li>
                         <li class="border-t border-slate-700 pt-4 mt-4">
                             <div class="flex flex-col gap-3">
-                                <a href="assets/Mohamed_Elkomy_CV.pdf" target="_blank" class="flex items-center gap-2 text-blue-400 font-medium">
+                                <a href="assets/Mohamed_Elkomy_CV.pdf" target="_blank" class="flex items-center gap-2 text-blue-400 font-medium py-2">
                                     <i class="fas fa-file-alt"></i>
                                     <span>View CV</span>
                                 </a>
-                                <a href="https://www.linkedin.com/in/mohamed-elkomy-me30/" target="_blank" class="flex items-center gap-2 text-blue-400 font-medium">
+                                <a href="https://www.linkedin.com/in/mohamed-elkomy-me30/" target="_blank" class="flex items-center gap-2 text-blue-400 font-medium py-2">
                                     <i class="fab fa-linkedin"></i>
                                     <span>LinkedIn Profile</span>
                                 </a>
@@ -417,6 +425,20 @@
                             at the University of Menoufia. Passionate about transforming data into meaningful insights 
                             and building intelligent solutions that make a difference.
                         </p>
+                        <div class="flex flex-wrap gap-4">
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-map-marker-alt text-blue-400"></i>
+                                <span style="color: var(--text-secondary);">Menoufia, Egypt</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-graduation-cap text-blue-400"></i>
+                                <span style="color: var(--text-secondary);">Bachelor of Artificial Intelligence</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-briefcase text-blue-400"></i>
+                                <span style="color: var(--text-secondary);">Data Analyst & Data Scientist</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -586,7 +608,7 @@
                 </div>
 
                 <!-- NVIDIA Deep Learning Certificate -->
-                <div class="card p-6" data-aos="fade-up">
+                <div class="card p-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="flex flex-col h-full">
                         <div class="mb-4">
                             <!-- Certificate Image -->
@@ -639,16 +661,433 @@
                     </div>
                 </div>
 
-                <!-- باقي الشهادات بنفس النمط -->
-                <!-- ... باقي الكود كما هو ... -->
+                <!-- Python Programming Basics - Maharatech -->
+                <div class="card p-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex flex-col h-full">
+                        <div class="mb-4">
+                            <!-- Certificate Image -->
+                            <div class="bg-gradient-to-br from-yellow-900/20 to-orange-900/20 p-4 rounded-xl mb-6 transition-all duration-300 hover:shadow-md hover:scale-[1.02] transform-gpu">
+                                <img src="assets\python_mahara .png" alt="Python Programming Basics Certificate" class="w-full h-auto rounded-lg">
+                            </div>
+        
+                            <!-- Certification Details -->
+                            <h3 class="text-2xl font-semibold mb-2 text-center" style="color: var(--text-primary);">
+                                Python Programming Basics
+                            </h3>
+                            <div class="text-center mb-3">
+                                <div class="flex items-center justify-center gap-2 mb-2" style="color: var(--text-secondary);">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span class="font-medium">Maharatech</span>
+                                </div>
+                                <div class="flex items-center justify-center gap-2 text-sm" style="color: var(--text-secondary);">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Issued: Sep 2, 2024</span>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- Skill Tags -->
+                        <div class="flex flex-wrap gap-2 mb-4 justify-center">
+                            <span class="skill-tag bg-yellow-900/30 text-yellow-300">
+                                <i class="fab fa-python mr-2"></i>Python
+                            </span>
+                            <span class="skill-tag bg-orange-900/30 text-orange-300">
+                                <i class="fas fa-code mr-2"></i>Programming
+                            </span>
+                            <span class="skill-tag bg-yellow-900/30 text-yellow-300">
+                                <i class="fas fa-laptop-code mr-2"></i>Basics
+                            </span>
+                        </div>
+        
+                        <!-- Certificate Link -->
+                        <a href="assets\Course_Certificate_En.pdf" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="inline-flex items-center justify-center gap-2 text-blue-400 hover:text-blue-300 font-medium transition-colors duration-300 mt-auto">
+                            <i class="fas fa-external-link-alt"></i>
+                            View Certificate 
+                        </a>
+                    </div>
+                </div>
 
+                <!-- Python for Beginners - Udemy -->
+                <div class="card p-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex flex-col h-full">
+                        <div class="mb-4">
+                            <!-- Certificate Image -->
+                            <div class="bg-gradient-to-br from-purple-900/20 to-indigo-900/20 p-4 rounded-xl mb-6 transition-all duration-300 hover:shadow-md hover:scale-[1.02] transform-gpu">
+                                <img src="assets\python_udemy.png" alt="Python for Beginners Certificate" class="w-full h-auto rounded-lg">
+                            </div>
+        
+                            <!-- Certification Details -->
+                            <h3 class="text-2xl font-semibold mb-2 text-center" style="color: var(--text-primary);">
+                                Python for Beginners
+                            </h3>
+                            <div class="text-center mb-3">
+                                <div class="flex items-center justify-center gap-2 mb-2" style="color: var(--text-secondary);">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span class="font-medium">Udemy</span>
+                                </div>
+                                <div class="flex items-center justify-center gap-2 text-sm" style="color: var(--text-secondary);">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Issued: Oct 25, 2024</span>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- Skill Tags -->
+                        <div class="flex flex-wrap gap-2 mb-4 justify-center">
+                            <span class="skill-tag bg-purple-900/30 text-purple-300">
+                                <i class="fab fa-python mr-2"></i>Python
+                            </span>
+                            <span class="skill-tag bg-indigo-900/30 text-indigo-300">
+                                <i class="fas fa-book-open mr-2"></i>Beginner
+                            </span>
+                            <span class="skill-tag bg-purple-900/30 text-purple-300">
+                                <i class="fas fa-video mr-2"></i>Online Course
+                            </span>
+                        </div>
+        
+                        <!-- Certificate Link -->
+                        <a href="assets\python for begiiners.pdf" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="inline-flex items-center justify-center gap-2 text-blue-400 hover:text-blue-300 font-medium transition-colors duration-300 mt-auto">
+                            <i class="fas fa-external-link-alt"></i>
+                            View Certificate 
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Computer Vision - Kaggle -->
+                <div class="card p-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex flex-col h-full">
+                        <div class="mb-4">
+                            <!-- Certificate Image -->
+                            <div class="bg-gradient-to-br from-blue-900/20 to-cyan-900/20 p-4 rounded-xl mb-6 transition-all duration-300 hover:shadow-md hover:scale-[1.02] transform-gpu">
+                                <img src="assets\Mohamed Elkomy - Computer Vision.png" alt="Computer Vision Certificate" class="w-full h-auto rounded-lg">
+                            </div>
+        
+                            <!-- Certification Details -->
+                            <h3 class="text-2xl font-semibold mb-2 text-center" style="color: var(--text-primary);">
+                                Computer Vision
+                            </h3>
+                            <div class="text-center mb-3">
+                                <div class="flex items-center justify-center gap-2 mb-2" style="color: var(--text-secondary);">
+                                    <i class="fas fa-trophy"></i>
+                                    <span class="font-medium">Kaggle</span>
+                                </div>
+                                <div class="flex items-center justify-center gap-2 text-sm" style="color: var(--text-secondary);">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Issued: Aug 30, 2025</span>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- Skill Tags -->
+                        <div class="flex flex-wrap gap-2 mb-4 justify-center">
+                            <span class="skill-tag bg-blue-900/30 text-blue-300">
+                                <i class="fas fa-eye mr-2"></i>Computer Vision
+                            </span>
+                            <span class="skill-tag bg-cyan-900/30 text-cyan-300">
+                                <i class="fas fa-image mr-2"></i>Image Processing
+                            </span>
+                            <span class="skill-tag bg-blue-900/30 text-blue-300">
+                                <i class="fas fa-robot mr-2"></i>AI/ML
+                            </span>
+                        </div>
+        
+                        <!-- Verification Link -->
+                        <a href="https://www.kaggle.com/learn/certification/muhamedelkomy/computer-vision" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="inline-flex items-center justify-center gap-2 text-blue-400 hover:text-blue-300 font-medium transition-colors duration-300 mt-auto">
+                            <i class="fas fa-external-link-alt"></i>
+                            Verify Certificate
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Intro to Deep Learning - Kaggle -->
+                <div class="card p-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="flex flex-col h-full">
+                        <div class="mb-4">
+                            <!-- Certificate Image -->
+                            <div class="bg-gradient-to-br from-emerald-900/20 to-teal-900/20 p-4 rounded-xl mb-6 transition-all duration-300 hover:shadow-md hover:scale-[1.02] transform-gpu">
+                                <img src="assets\Mohamed Elkomy - Intro to Deep Learning.png" alt="Intro to Deep Learning Certificate" class="w-full h-auto rounded-lg">
+                            </div>
+        
+                            <!-- Certification Details -->
+                            <h3 class="text-2xl font-semibold mb-2 text-center" style="color: var(--text-primary);">
+                                Intro to Deep Learning
+                            </h3>
+                            <div class="text-center mb-3">
+                                <div class="flex items-center justify-center gap-2 mb-2" style="color: var(--text-secondary);">
+                                    <i class="fas fa-trophy"></i>
+                                    <span class="font-medium">Kaggle</span>
+                                </div>
+                                <div class="flex items-center justify-center gap-2 text-sm" style="color: var(--text-secondary);">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Issued: Aug 30, 2025</span>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- Skill Tags -->
+                        <div class="flex flex-wrap gap-2 mb-4 justify-center">
+                            <span class="skill-tag bg-emerald-900/30 text-emerald-300">
+                                <i class="fas fa-brain mr-2"></i>Deep Learning
+                            </span>
+                            <span class="skill-tag bg-teal-900/30 text-teal-300">
+                                <i class="fas fa-network-wired mr-2"></i>Neural Networks
+                            </span>
+                            <span class="skill-tag bg-emerald-900/30 text-emerald-300">
+                                <i class="fas fa-code mr-2"></i>Introduction
+                            </span>
+                        </div>
+        
+                        <!-- Verification Link -->
+                        <a href="https://www.kaggle.com/learn/certification/muhamedelkomy/intro-to-deep-learning" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="inline-flex items-center justify-center gap-2 text-blue-400 hover:text-blue-300 font-medium transition-colors duration-300 mt-auto">
+                            <i class="fas fa-external-link-alt"></i>
+                            Verify Certificate
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- باقي الأقسام بنفس النمط -->
-        <!-- ... باقي الكود كما هو مع تعديل الألوان ... -->
+        <!-- Projects Section -->
+        <section id="projects" class="mt-16">
+            <h2 class="text-3xl font-bold mb-8 gradient-text" data-aos="fade-up">Featured Projects</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+
+                <!-- Premier League Dashboard Project -->
+                <div class="card overflow-hidden md:col-span-2" data-aos="fade-up">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-2" style="color: var(--text-primary);">Premier League 94-2024 Dashboard</h3>
+                        <p class="mb-4" style="color: var(--text-secondary);">
+                            Comprehensive analysis of Premier League statistics from 1994 to 2024, featuring team performance, 
+                            player statistics, seasonal trends, and historical data visualization using Power BI.
+                        </p>
+                        
+                        <!-- Project Image -->
+                        <div class="mb-6">
+                            <img src="assets\Premier Dashboard.png" alt="Premier League Dashboard" class="project-image">
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="skill-tag bg-gray-900/30 text-gray-300">Power BI</span>
+                            <span class="skill-tag bg-gray-900/30 text-gray-300">DAX</span>
+                            <span class="skill-tag bg-gray-900/30 text-gray-300">Football Analytics</span>
+                            <span class="skill-tag bg-gray-900/30 text-gray-300">Data Visualization</span>
+                            <span class="skill-tag bg-gray-900/30 text-gray-300">Sports Analytics</span>
+                        </div>
+
+                        <a href="https://www.linkedin.com/posts/mohamed-elkomy-me30_premierleague-footballanalytics-datavisualization-activity-7368318112535969802-xXAQ?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFy1uJABT7A0h6vFFqUbMEtm7eeEruLIDFI" 
+                           class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-medium transition-colors duration-300"
+                           target="_blank" 
+                           rel="noopener">
+                            <i class="fab fa-linkedin"></i>
+                            View on LinkedIn
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Uber 2024 Dashboard Project -->
+                <div class="card overflow-hidden md:col-span-2" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-2" style="color: var(--text-primary);">Uber 2024 Dashboard</h3>
+                        <p class="mb-4" style="color: var(--text-secondary);">
+                            Detailed analysis of Uber ride data for 2024, showcasing trip patterns, revenue insights, 
+                            geographical distributions, and performance metrics using advanced data visualization techniques.
+                        </p>
+                        
+                        <!-- Dual Images for Uber Dashboard -->
+                        <div class="dual-image-container mb-6">
+                            <img src="assets\uber .png" alt="Uber Dashboard Part 1">
+                            <img src="assets\uber1.png" alt="Uber Dashboard Part 2">
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="skill-tag bg-gray-900/30 text-gray-300">Power BI</span>
+                            <span class="skill-tag bg-gray-900/30 text-gray-300">DAX</span>
+                            <span class="skill-tag bg-gray-900/30 text-gray-300">Transportation Analytics</span>
+                            <span class="skill-tag bg-gray-900/30 text-gray-300">Data Modeling</span>
+                            <span class="skill-tag bg-gray-900/30 text-gray-300">Geographic Analysis</span>
+                        </div>
+
+                        <a href="https://www.linkedin.com/posts/mohamed-elkomy-me30_dataanalysis-powerbi-dashboard-activity-7379444177597710336-72X_?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAD7ROCMBY58zGsEugABvhULDhkisI1mBRCw"
+                           class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-medium transition-colors duration-300"
+                           target="_blank" 
+                           rel="noopener">
+                            <i class="fab fa-linkedin"></i>
+                            View on LinkedIn
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Fast Food Sales Dashboard -->
+                <div class="card overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-2" style="color: var(--text-primary);">Fast Food Sales Dashboard</h3>
+                        <p class="mb-4" style="color: var(--text-secondary);">
+                            Interactive Excel dashboard analyzing fast food sales performance with insights on revenue trends, 
+                            product performance, and customer behavior patterns using Power Query and Power Pivot.
+                        </p>
+                        
+                        <!-- Project Image -->
+                        <div class="mb-6">
+                            <img src="assets\fast food sales .png" alt="Fast Food Sales Dashboard" class="project-image">
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="skill-tag bg-green-900/30 text-green-300">Excel</span>
+                            <span class="skill-tag bg-green-900/30 text-green-300">Power Query</span>
+                            <span class="skill-tag bg-green-900/30 text-green-300">Power Pivot</span>
+                            <span class="skill-tag bg-green-900/30 text-green-300">Sales Analytics</span>
+                            <span class="skill-tag bg-green-900/30 text-green-300">Data Modeling</span>
+                        </div>
+
+                        <a href="https://www.linkedin.com/posts/mohamed-elkomy-me30_excel-powerquery-powerpivot-activity-7361053236251750400-g0Wj?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFy1uJABT7A0h6vFFqUbMEtm7eeEruLIDFI" 
+                           class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-medium transition-colors duration-300"
+                           target="_blank" 
+                           rel="noopener">
+                            <i class="fab fa-linkedin"></i>
+                            View on LinkedIn
+                        </a>
+                    </div>
+                </div>
+
+                <!-- FMCG Sales Dashboard -->
+                <div class="card overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-2" style="color: var(--text-primary);">FMCG Sales Dashboard</h3>
+                        <p class="mb-4" style="color: var(--text-secondary);">
+                            Comprehensive Fast Moving Consumer Goods sales analysis using Excel, featuring market trends, 
+                            brand performance, regional insights, and profitability metrics with advanced data modeling.
+                        </p>
+                        
+                        <!-- Project Image -->
+                        <div class="mb-6">
+                            <img src="assets\FMCG sales .png" alt="FMCG Sales Dashboard" class="project-image">
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="skill-tag bg-purple-900/30 text-purple-300">Excel</span>
+                            <span class="skill-tag bg-purple-900/30 text-purple-300">Power Query</span>
+                            <span class="skill-tag bg-purple-900/30 text-purple-300">Power Pivot</span>
+                            <span class="skill-tag bg-purple-900/30 text-purple-300">FMCG Analytics</span>
+                            <span class="skill-tag bg-purple-900/30 text-purple-300">Market Analysis</span>
+                        </div>
+
+                        <a href="https://www.linkedin.com/posts/mohamed-elkomy-me30_digitalegyptpioneers-exceldashboard-dataanalysis-activity-7354546622581633024-xG9z?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFy1uJABT7A0h6vFFqUbMEtm7eeEruLIDFI" 
+                           class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-medium transition-colors duration-300"
+                           target="_blank" 
+                           rel="noopener">
+                            <i class="fab fa-linkedin"></i>
+                            View on LinkedIn
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Social Media Engagement Dashboard -->
+                <div class="card overflow-hidden" data-aos="fade-up" data-aos-delay="400">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-2" style="color: var(--text-primary);">Social Media Engagement Dashboard</h3>
+                        <p class="mb-4" style="color: var(--text-secondary);">
+                            Advanced social media analytics dashboard built with Excel, tracking engagement metrics, follower growth, 
+                            content performance, and social media ROI across multiple platforms using Power Query and Power Pivot.
+                        </p>
+                        
+                        <!-- Project Image -->
+                        <div class="mb-6">
+                            <img src="assets\social media engangement .png" alt="Social Media Engagement Dashboard" class="project-image">
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="skill-tag bg-pink-900/30 text-pink-300">Excel</span>
+                            <span class="skill-tag bg-pink-900/30 text-pink-300">Power Query</span>
+                            <span class="skill-tag bg-pink-900/30 text-pink-300">Power Pivot</span>
+                            <span class="skill-tag bg-pink-900/30 text-pink-300">Social Media Analytics</span>
+                            <span class="skill-tag bg-pink-900/30 text-pink-300">Engagement Metrics</span>
+                            <span class="skill-tag bg-pink-900/30 text-pink-300">Digital Marketing</span>
+                        </div>
+
+                        <a href="https://www.linkedin.com/posts/mohamed-elkomy-me30_excel-powerquery-powerpivot-activity-7361415132926697472-mUyM?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFy1uJABT7A0h6vFFqUbMEtm7eeEruLIDFI" 
+                           class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-medium transition-colors duration-300"
+                           target="_blank" 
+                           rel="noopener">
+                            <i class="fab fa-linkedin"></i>
+                            View on LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="mt-16">
+            <h2 class="text-3xl font-bold mb-8 gradient-text" data-aos="fade-up">Contact Me</h2>
+            <div class="card p-8" data-aos="fade-up">
+                <p class="mb-6 text-lg leading-relaxed" style="color: var(--text-secondary);">
+                    Feel free to reach out to me through any of the following channels:
+                </p>
+
+                <!-- Contact Info -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-envelope text-blue-400"></i>
+                        <a href="mailto:mohamedelkomy367@gmail.com" class="text-lg hover:text-blue-400 transition-colors duration-300" style="color: var(--text-secondary);">mohamedelkomy367@gmail.com</a>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <!-- Phone Call Link -->
+                        <a href="tel:+201069705670" class="flex items-center gap-3">
+                            <i class="fas fa-phone-alt text-blue-400"></i>
+                            <span class="text-lg hover:text-blue-400 transition-colors duration-300" style="color: var(--text-secondary);">+201069705670</span>
+                        </a>
+                    </div>
+                    
+                    <div class="flex items-center gap-3">
+                        <!-- WhatsApp Link -->
+                        <a href="https://wa.me/+201069705670" target="_blank" class="flex items-center gap-3">
+                            <i class="fab fa-whatsapp text-green-400"></i>
+                            <span class="text-lg hover:text-green-400 transition-colors duration-300" style="color: var(--text-secondary);">WhatsApp</span>
+                        </a>
+                    </div>
+                    
+                    <div class="flex items-center gap-3">
+                        <i class="fab fa-linkedin text-blue-400"></i>
+                        <a href="https://www.linkedin.com/in/mohamed-elkomy-me30/" target="_blank" class="text-lg hover:text-blue-400 transition-colors duration-300" style="color: var(--text-secondary);">LinkedIn Profile</a>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-file-alt text-blue-400"></i>
+                        <a href="assets/Mohamed_Elkomy_CV.pdf" target="_blank" class="text-lg hover:text-blue-400 transition-colors duration-300" style="color: var(--text-secondary);">View My CV</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
     </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 py-8 mt-16" style="background: var(--bg-secondary);">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p class="text-gray-300" style="color: var(--text-secondary);">
+                &copy; 2024 Mohamed Elkomy. All rights reserved.
+            </p>
+            <div class="flex justify-center gap-4 mt-4">
+                <a href="https://www.linkedin.com/in/mohamed-elkomy-me30/" target="_blank" class="text-gray-300 hover:text-blue-400 transition-colors duration-300">
+                    <i class="fab fa-linkedin text-xl"></i>
+                </a>
+                <a href="mailto:mohamedelkomy367@gmail.com" class="text-gray-300 hover:text-blue-400 transition-colors duration-300">
+                    <i class="fas fa-envelope text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
 
     <!-- Scroll to Top Button -->
     <div id="scrollToTop" class="scroll-to-top">
@@ -692,14 +1131,11 @@
 
         function updateThemeToggle(theme) {
             const icon = themeToggle.querySelector('i');
-            const text = themeToggle.querySelector('span');
             
             if (theme === 'dark') {
-                icon.className = 'fas fa-sun';
-                text.textContent = 'Light Mode';
+                icon.className = 'fas fa-sun text-sm';
             } else {
-                icon.className = 'fas fa-moon';
-                text.textContent = 'Dark Mode';
+                icon.className = 'fas fa-moon text-sm';
             }
         }
 
@@ -738,10 +1174,17 @@
         // Toggle Mobile Menu
         const menuToggle = document.getElementById('menuToggle');
         const mobileMenu = document.getElementById('mobileMenu');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
         
         if (menuToggle && mobileMenu) {
             menuToggle.addEventListener('click', function() {
                 mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        if (closeMobileMenu) {
+            closeMobileMenu.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
             });
         }
 
