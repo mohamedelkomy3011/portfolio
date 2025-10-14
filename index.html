@@ -277,6 +277,25 @@
             text-align: right;
         }
 
+        .video-btn {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3);
+        }
+
+        .video-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.4);
+            background: linear-gradient(135deg, #8b5cf6, #ec4899);
+        }
+
         @media (max-width: 768px) {
             .dual-image-container {
                 grid-template-columns: 1fr;
@@ -838,8 +857,48 @@
             <h2 class="text-3xl font-bold mb-8 gradient-text" data-aos="fade-up">Featured Projects</h2>
             <div class="grid md:grid-cols-2 gap-8">
 
-                <!-- Premier League Dashboard Project -->
+                <!-- Revenue & Margin Analysis Dashboard -->
                 <div class="card overflow-hidden md:col-span-2" data-aos="fade-up">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-2" style="color: var(--text-primary);">Revenue & Margin Analysis Dashboard</h3>
+                        <p class="mb-4" style="color: var(--text-secondary);">
+                            A Power BI dashboard showing total revenue, gross margin, and margin %. It highlights top months, 
+                            supplier performance, and team revenue with interactive filters for easy analysis.
+                        </p>
+                        
+                        <!-- Project Image -->
+                        <div class="mb-6">
+                            <img src="assets/Revenue & Margin.png" alt="Revenue & Margin Analysis Dashboard" class="project-image">
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="skill-tag bg-blue-900/30 text-blue-300">Power BI</span>
+                            <span class="skill-tag bg-blue-900/30 text-blue-300">DAX</span>
+                            <span class="skill-tag bg-blue-900/30 text-blue-300">Financial Analysis</span>
+                            <span class="skill-tag bg-blue-900/30 text-blue-300">Revenue Analytics</span>
+                            <span class="skill-tag bg-blue-900/30 text-blue-300">Margin Analysis</span>
+                        </div>
+
+                        <div class="flex flex-wrap gap-4">
+                            <a href="assets/Revenue .mp4" 
+                               class="video-btn"
+                               target="_blank">
+                                <i class="fas fa-play-circle"></i>
+                                Watch Demo Video
+                            </a>
+                            <a href="https://www.linkedin.com/in/mohamed-elkomy-me30/" 
+                               class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-medium transition-colors duration-300"
+                               target="_blank" 
+                               rel="noopener">
+                                <i class="fab fa-linkedin"></i>
+                                View on LinkedIn
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Premier League Dashboard Project -->
+                <div class="card overflow-hidden md:col-span-2" data-aos="fade-up" data-aos-delay="100">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold mb-2" style="color: var(--text-primary);">Premier League 94-2024 Dashboard</h3>
                         <p class="mb-4" style="color: var(--text-secondary);">
@@ -871,7 +930,7 @@
                 </div>
 
                 <!-- Uber 2024 Dashboard Project -->
-                <div class="card overflow-hidden md:col-span-2" data-aos="fade-up" data-aos-delay="100">
+                <div class="card overflow-hidden md:col-span-2" data-aos="fade-up" data-aos-delay="200">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold mb-2" style="color: var(--text-primary);">Uber 2024 Dashboard</h3>
                         <p class="mb-4" style="color: var(--text-secondary);">
@@ -904,7 +963,7 @@
                 </div>
 
                 <!-- Fast Food Sales Dashboard -->
-                <div class="card overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                <div class="card overflow-hidden" data-aos="fade-up" data-aos-delay="300">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold mb-2" style="color: var(--text-primary);">Fast Food Sales Dashboard</h3>
                         <p class="mb-4" style="color: var(--text-secondary);">
@@ -936,7 +995,7 @@
                 </div>
 
                 <!-- FMCG Sales Dashboard -->
-                <div class="card overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                <div class="card overflow-hidden" data-aos="fade-up" data-aos-delay="400">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold mb-2" style="color: var(--text-primary);">FMCG Sales Dashboard</h3>
                         <p class="mb-4" style="color: var(--text-secondary);">
@@ -968,7 +1027,7 @@
                 </div>
 
                 <!-- Social Media Engagement Dashboard -->
-                <div class="card overflow-hidden" data-aos="fade-up" data-aos-delay="400">
+                <div class="card overflow-hidden" data-aos="fade-up" data-aos-delay="500">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold mb-2" style="color: var(--text-primary);">Social Media Engagement Dashboard</h3>
                         <p class="mb-4" style="color: var(--text-secondary);">
